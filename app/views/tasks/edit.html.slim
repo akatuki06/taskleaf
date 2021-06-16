@@ -3,4 +3,8 @@ h1 タスクの編集
 .nav.justify-content-end
 	= link_to '一覧', tasks_path, class: 'nav-link'
 
-= render partial: 'form', locals: { task: @task }
+= render partial: 'error_msg', locals: { task: @task }
+
+= form_with model: @task, local: true, url: confirm_task_path do |f|
+
+	= render partial: 'form', locals: { f: f }
